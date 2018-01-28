@@ -5,8 +5,8 @@ namespace Angar
 {
     public class PoolObjectEditModeUtility : MonoBehaviour, IPoolObjectEvents
     {
-        private IPoolDataSet Dataset;
-        private int Index;
+        public IPoolDataSet Dataset { get; private set; }
+        public int Index { get; private set; }
 
         public void PoolDeinitialize()
         {

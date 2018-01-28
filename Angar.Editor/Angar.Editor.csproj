@@ -15,7 +15,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
-    <DebugType>embedded</DebugType>
+    <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>..\Assets\Plugins\Angar\</OutputPath>
     <DefineConstants>TRACE;DEBUG;UNITY_EDITOR</DefineConstants>
@@ -113,8 +113,6 @@
     <Compile Include="Source\PositionUpdaterEngineOctree.cs" />
     <Compile Include="Source\SmartPoolStaticSettings.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Source\Editor\ComponentEditors\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

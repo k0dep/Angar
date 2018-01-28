@@ -280,9 +280,6 @@
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>Library\UnityAssemblies\UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
-    <Reference Include="Angar">
-      <HintPath>Assets\Plugins\Angar\Angar.dll</HintPath>
-    </Reference>
     <Reference Include="Angar.Editor">
       <HintPath>Assets\Plugins\Angar\Angar.Editor.dll</HintPath>
     </Reference>

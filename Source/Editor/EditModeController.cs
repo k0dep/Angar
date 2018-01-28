@@ -1,5 +1,6 @@
 ﻿#if UNITY_EDITOR
 
+using System;
 using System.Diagnostics;
 using Angar.Views;
 using UnityEditor;
@@ -39,6 +40,7 @@ namespace Angar
             View.EventSelectAll += View_EventSelectAll;
             View.EventChangeActiveUpdater += ViewOnEventChangeActiveUpdater;
             View.EventChangeEditMode += ViewOnEventChangeEditMode;
+            View.EventRemoveObjects += ViewOnEventRemoveObjects;
 
             SceneManager.sceneLoaded += EditorSceneManagerOnSceneLoaded;
             SceneManager.sceneUnloaded += EditorSceneManagerOnSceneUnloaded;
@@ -49,6 +51,11 @@ namespace Angar
             EditorApplication.update += Update;
 
             Model.RefreshUpdaters();
+        }
+
+        private void ViewOnEventRemoveObjects()
+        {
+            Model.RemoveFindedObjects();
         }
 
         ~EditModeController()

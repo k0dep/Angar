@@ -2,6 +2,8 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using Angar.Data;
+using UnityEditor;
 using UnityEngine;
 
 namespace Angar
@@ -15,6 +17,9 @@ namespace Angar
             get { return AngarEditorSettings.EditMode; }
             set { AngarEditorSettings.EditMode = value; }
         }
+
+
+        private List<PoolObjectEditModeUtility> _selectedPoolItems;
 
 
         public PoolEditorModel()
@@ -140,6 +145,29 @@ namespace Angar
             UpdatersState.Remove(UpdatersState.First(t => t.Updater == updater));
         }
 
+        public void GetItemsFromSelected()
+        {
+            _selectedPoolItems = Selection.gameObjects
+                .Select(t => t.GetComponent<PoolObjectEditModeUtility>())
+                .Where(t => t != null)
+                .ToList();
+        }
+
+        public void RemoveFindedObjects()
+        {
+            GetItemsFromSelected();
+
+            var forDelete = _selectedPoolItems.Select(t => new {dataset = t.Dataset, index = t.Index});
+
+            ExitEditMode();
+
+            foreach (var item in forDelete)
+            {
+                item.dataset.Remove(item.index);
+            }
+
+            EnterEditMode();
+        }
 
 
 

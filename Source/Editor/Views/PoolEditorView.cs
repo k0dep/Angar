@@ -16,6 +16,7 @@ namespace Angar.Views
         public event Action EventSelectAll;
         public event Action<IPositionUpdater, bool> EventChangeActiveUpdater;
         public event Action<bool> EventChangeEditMode;
+        public event Action EventRemoveObjects;
 
         private ControllVerticalLayout UpdatersList;
 
@@ -42,7 +43,20 @@ namespace Angar.Views
             var proxyUpdateControll = new InternalControllUpdate(new ControllVerticalLayout(updatersLayout, editModeToggle));
             proxyUpdateControll.EventBeforeDraw += UpdateUpdaterList;
 
-            MainControll = proxyUpdateControll;
+            var generalTab = new TabView("Edit mode", proxyUpdateControll);
+           
+            var removeObjectsBtn = new ControllButton("Remove selected object");
+            removeObjectsBtn.EventClick += () =>
+            {
+                if (EventRemoveObjects != null)
+                    EventRemoveObjects();
+            };
+
+            var objectsEdit = new TabView("Edit objects", removeObjectsBtn);
+
+            var tabsControll = new ControllTabView(generalTab, objectsEdit);
+
+            MainControll = tabsControll;
         }
 
         private void UpdateUpdaterList()

@@ -1,6 +1,7 @@
 ﻿#if UNITY_EDITOR
 
 using System;
+using UnityEditor;
 
 namespace Angar
 {
@@ -8,8 +9,17 @@ namespace Angar
     {
         public static bool EditMode
         {
-            get;
-            set;
+            get
+            {
+                if (!EditorPrefs.HasKey("Angar.EditMode"))
+                    EditorPrefs.SetBool("Angar.EditMode", false);
+
+                return EditorPrefs.GetBool("Angar.EditMode");
+            }
+            set
+            {
+                EditorPrefs.SetBool("Angar.EditMode", value);
+            }
         }
 
         public static event Action<IPositionUpdater> AddedUpdaterEvent;
