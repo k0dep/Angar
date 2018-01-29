@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -253,6 +253,7 @@ GameObject:
   - component: {fileID: 565520812}
   - component: {fileID: 565520811}
   - component: {fileID: 565520810}
+  - component: {fileID: 565520815}
   m_Layer: 0
   m_Name: Pool_en3
   m_TagString: Untagged
@@ -311,13 +312,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _TargetSource: {fileID: 358433663}
   _DataSetSource: {fileID: 565520813}
-  WorldStartSize: 100
-  MinimumNodeSize: 100
-  _NearRadius: 0
-  _FarRadius: 300
-  MaximumLoadPerUpdate: 30
-  MaximumUnLoadPerUpdate: 30
-  DelayTime: 0.5
+  MaximumLoadPerUpdate: 1
+  MaximumUnLoadPerUpdate: 1
+  DelayTime: 0.1
 --- !u!114 &565520813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,6 +342,22 @@ MonoBehaviour:
     type: 2}
   _MaxSize: 10000
   _MinSize: 0
+--- !u!114 &565520815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 565520808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1718410858, guid: a54b6da75e331b24688c525e67b14776, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _updater: {fileID: 565520812}
+  NearRadius: 0
+  FarRadius: 100
+  WorldStartSize: 70
+  WorldNodeSize: 70
 --- !u!1 &634534105
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,6 +442,7 @@ GameObject:
   - component: {fileID: 815675090}
   - component: {fileID: 815675089}
   - component: {fileID: 815675088}
+  - component: {fileID: 815675093}
   m_Layer: 0
   m_Name: Pool_ent2
   m_TagString: Untagged
@@ -487,13 +501,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _TargetSource: {fileID: 358433663}
   _DataSetSource: {fileID: 815675091}
-  WorldStartSize: 100
-  MinimumNodeSize: 100
-  _NearRadius: 0
-  _FarRadius: 300
-  MaximumLoadPerUpdate: 30
-  MaximumUnLoadPerUpdate: 30
-  DelayTime: 0.5
+  MaximumLoadPerUpdate: 1
+  MaximumUnLoadPerUpdate: 1
+  DelayTime: 0.1
 --- !u!114 &815675091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -521,6 +531,22 @@ MonoBehaviour:
     type: 2}
   _MaxSize: 10000
   _MinSize: 0
+--- !u!114 &815675093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 815675086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1718410858, guid: a54b6da75e331b24688c525e67b14776, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _updater: {fileID: 815675090}
+  NearRadius: 0
+  FarRadius: 100
+  WorldStartSize: 70
+  WorldNodeSize: 70
 --- !u!1 &1701208734
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,6 +625,7 @@ GameObject:
   - component: {fileID: 1849899448}
   - component: {fileID: 1849899447}
   - component: {fileID: 1849899446}
+  - component: {fileID: 1849899451}
   m_Layer: 0
   m_Name: Pool_ent1
   m_TagString: Untagged
@@ -657,13 +684,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _TargetSource: {fileID: 358433663}
   _DataSetSource: {fileID: 1849899449}
-  WorldStartSize: 100
-  MinimumNodeSize: 100
-  _NearRadius: 0
-  _FarRadius: 300
-  MaximumLoadPerUpdate: 30
-  MaximumUnLoadPerUpdate: 30
-  DelayTime: 0.5
+  MaximumLoadPerUpdate: 1
+  MaximumUnLoadPerUpdate: 1
+  DelayTime: 0.1
 --- !u!114 &1849899449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -691,3 +714,19 @@ MonoBehaviour:
     type: 2}
   _MaxSize: 10000
   _MinSize: 0
+--- !u!114 &1849899451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1849899444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1718410858, guid: a54b6da75e331b24688c525e67b14776, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _updater: {fileID: 1849899448}
+  NearRadius: 0
+  FarRadius: 100
+  WorldStartSize: 70
+  WorldNodeSize: 70

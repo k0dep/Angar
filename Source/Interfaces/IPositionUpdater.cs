@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using Angar.Data;
+using Angar.PositionEngine;
 
 namespace Angar
 {
-    public interface IPositionUpdater
+    public interface IPositionUpdaterBase
     {
         float FarRadius { get; set; }
         float NearRadius { get; set; }
@@ -14,9 +15,21 @@ namespace Angar
 
         HashSet<int> Loaded { get; set; }
 
+        void UpdateRange(float delta);
+    }
+
+    public interface IPositionUpdaterComponent
+    {
+        IPositionUpdaterEngine Engine { get; set; }
+    }
+
+    public interface IPositionUpdater : IPositionUpdaterBase, IPositionUpdaterEvents
+    {
+    }
+
+    public interface IPositionUpdaterEvents
+    {
         event Action<int> EventLoad;
         event Action<int> EventUnload;
-
-        void UpdateRange(float delta);
     }
 }

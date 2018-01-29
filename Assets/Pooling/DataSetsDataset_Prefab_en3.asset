@@ -7551,13 +7551,6 @@ MonoBehaviour:
     _floatArray: []
     _stringArray: []
     _mapping: []
-  - _position: {x: -44.04181, y: 66.985085, z: 338.33673}
-    _rotation: {x: 0, y: 5.307877, z: 0}
-    _scale: {x: 1.0759208, y: 1.0759208, z: 1.0759208}
-    _intArray: 
-    _floatArray: []
-    _stringArray: []
-    _mapping: []
   - _position: {x: 324.46875, y: 91.50573, z: 142.81244}
     _rotation: {x: 0, y: 5.5634146, z: 0}
     _scale: {x: 1.0234624, y: 1.0234624, z: 1.0234624}
@@ -11768,13 +11761,6 @@ MonoBehaviour:
   - _position: {x: -310.62622, y: 3.2028878, z: 441.2118}
     _rotation: {x: 0, y: 1.1532577, z: 0}
     _scale: {x: 0.93783987, y: 0.93783987, z: 0.93783987}
-    _intArray: 
-    _floatArray: []
-    _stringArray: []
-    _mapping: []
-  - _position: {x: -54.635468, y: 63.921192, z: 343.6936}
-    _rotation: {x: 0, y: 5.6892033, z: 0}
-    _scale: {x: 0.9019059, y: 0.9019059, z: 0.9019059}
     _intArray: 
     _floatArray: []
     _stringArray: []
@@ -17540,13 +17526,6 @@ MonoBehaviour:
     _floatArray: []
     _stringArray: []
     _mapping: []
-  - _position: {x: -54.601837, y: 62.752068, z: 346.56372}
-    _rotation: {x: 0, y: 0.19342016, z: 0}
-    _scale: {x: 1.053441, y: 1.053441, z: 1.053441}
-    _intArray: 
-    _floatArray: []
-    _stringArray: []
-    _mapping: []
   - _position: {x: 493.73224, y: 0.040452417, z: 451.3451}
     _rotation: {x: 0, y: 5.770533, z: 0}
     _scale: {x: 1.0030279, y: 1.0030279, z: 1.0030279}
@@ -18614,13 +18593,6 @@ MonoBehaviour:
   - _position: {x: 92.77887, y: 0.031500697, z: -448.02438}
     _rotation: {x: 0, y: 4.992082, z: 0}
     _scale: {x: 0.99082077, y: 0.99082077, z: 0.99082077}
-    _intArray: 
-    _floatArray: []
-    _stringArray: []
-    _mapping: []
-  - _position: {x: -42.494476, y: 67.9916, z: 329.48175}
-    _rotation: {x: 0, y: 2.3382912, z: 0}
-    _scale: {x: 1.0494388, y: 1.0494388, z: 1.0494388}
     _intArray: 
     _floatArray: []
     _stringArray: []

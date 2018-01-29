@@ -66,8 +66,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Source\DataSetItem.cs" />
-    <Compile Include="Source\DataSetSource.cs" />
+    <Compile Include="Source\Core\DataSetItem.cs" />
+    <Compile Include="Source\Core\DataSetSource.cs" />
+    <Compile Include="Source\Core\ListEngineSetup.cs" />
+    <Compile Include="Source\Core\OctreeEngineSetup.cs" />
     <Compile Include="Source\Editor\EditModeController.cs" />
     <Compile Include="Source\Editor\Importers\ScenePrefabImporterEditor.cs" />
     <Compile Include="Source\Editor\Importers\Views\ScenePrefabImporterView.cs" />
@@ -89,7 +91,7 @@
     <Compile Include="Source\Importing\ScenePrefabDataSet.cs" />
     <Compile Include="Source\Importing\ScenePrefabObjectFinder.cs" />
     <Compile Include="Source\Importing\TerrainPrototypeImportFinder.cs" />
-    <Compile Include="Source\Integer.cs" />
+    <Compile Include="Source\Core\Integer.cs" />
     <Compile Include="Source\Interfaces\IPool.cs" />
     <Compile Include="Source\Interfaces\IPoolDataSet.cs" />
     <Compile Include="Source\Interfaces\IPoolDataSetProxy.cs" />
@@ -99,18 +101,19 @@
     <Compile Include="Source\Interfaces\IPoolSystemClearable.cs" />
     <Compile Include="Source\Interfaces\IPoolSystemInitializable.cs" />
     <Compile Include="Source\Interfaces\IPositionUpdater.cs" />
+    <Compile Include="Source\Interfaces\IPositionUpdaterEngine.cs" />
     <Compile Include="Source\Interfaces\IPostionTargetSource.cs" />
     <Compile Include="Source\Octree\PointOctree.cs" />
     <Compile Include="Source\Octree\PointOctreeNode.cs" />
-    <Compile Include="Source\Pool.cs" />
-    <Compile Include="Source\PoolDataSet.cs" />
-    <Compile Include="Source\PoolLoader.cs" />
+    <Compile Include="Source\Core\Pool.cs" />
+    <Compile Include="Source\Core\PoolDataSet.cs" />
+    <Compile Include="Source\Core\PoolLoader.cs" />
     <Compile Include="Source\PoolObjectEditModeUtility.cs" />
-    <Compile Include="Source\PoolObjectEnabler.cs" />
-    <Compile Include="Source\PositionTargetSource.cs" />
-    <Compile Include="Source\PositionUpdater.cs" />
-    <Compile Include="Source\PositionUpdaterEngine.cs" />
-    <Compile Include="Source\PositionUpdaterEngineOctree.cs" />
+    <Compile Include="Source\Core\PoolObjectEnabler.cs" />
+    <Compile Include="Source\Core\PositionTargetSource.cs" />
+    <Compile Include="Source\Core\PositionUpdater.cs" />
+    <Compile Include="Source\UpdaterEngines\PositionUpdaterListEngine.cs" />
+    <Compile Include="Source\UpdaterEngines\PositionUpdaterOctreeEngine.cs" />
     <Compile Include="Source\SmartPoolStaticSettings.cs" />
   </ItemGroup>
   <ItemGroup />

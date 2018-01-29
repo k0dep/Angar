@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Angar.Data;
+using Angar.PositionEngine;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -8,7 +9,7 @@ namespace Angar
 {
     [AddComponentMenu("Angar/Position updater")]
     [ExecuteInEditMode]
-    public class PositionUpdater : MonoBehaviour, IPositionUpdater, IPoolSystemInitializable, IPoolSystemClearable
+    public class PositionUpdater : MonoBehaviour, IPositionUpdater, IPositionUpdaterComponent, IPoolSystemInitializable, IPoolSystemClearable
     {
         private float Elapsed = 10000;
 
@@ -19,16 +20,21 @@ namespace Angar
         private Object _DataSetSource;
 
         private IPostionTargetSource _targetSourceCache;
+        private IPositionUpdaterEngine _engine;
 
 
-        protected PositionUpdaterEngineOctree Engine { get; set; }
+        public IPositionUpdaterEngine Engine
+        {
+            get { return _engine; }
 
-
-        public float WorldStartSize;
-        public float MinimumNodeSize;
-
-        public float _NearRadius;
-        public float _FarRadius;
+            set
+            {
+                _engine = value;
+                if(_engine != null)
+                    _engine.Initialize(DataSet, TargetSource);
+            }
+        }
+        
 
         public int MaximumLoadPerUpdate = 30;
         public int MaximumUnLoadPerUpdate = 30;
@@ -64,22 +70,14 @@ namespace Angar
 
         public float NearRadius
         {
-            get { return _NearRadius; }
-            set
-            {
-                _NearRadius = value;
-                Engine.NearRadius = value;
-            }
+            get { return Engine.NearRadius; }
+            set { Engine.NearRadius = value; }
         }
 
         public float FarRadius
         {
-            get { return _FarRadius; }
-            set
-            {
-                _FarRadius = value;
-                Engine.FarRadius = value;
-            }
+            get { return Engine.FarRadius; }
+            set { Engine.FarRadius = value; }
         }
 
 
@@ -115,7 +113,6 @@ namespace Angar
 
         public void Initialize()
         {
-            Engine = new PositionUpdaterEngineOctree(_NearRadius, _FarRadius, TargetSource, DataSet, WorldStartSize, MinimumNodeSize);
         }
 
         public void Clear()
@@ -157,7 +154,6 @@ namespace Angar
             else
                 return;
 
-            ValidateLoadingRanges();
             Engine.UpdateRange(delta);
         }
 
@@ -166,23 +162,6 @@ namespace Angar
         {
             if(Application.isPlaying)
                 UpdateRange(Time.deltaTime);
-        }
-
-        private void ValidateLoadingRanges()
-        {
-            if (Math.Abs(Engine.FarRadius - _FarRadius) > 0.0001f)
-                FarRadius = _FarRadius;
-
-            if (Math.Abs(Engine.NearRadius - _NearRadius) > 0.0001f)
-                NearRadius = _NearRadius;
-        }
-
-        public void OnDrawGizmosSelected()
-        {
-            if(Engine == null)
-                return;
-
-            Engine.Octree.DrawAllBounds();
         }
     }
 }
