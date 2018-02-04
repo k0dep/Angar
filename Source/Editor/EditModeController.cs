@@ -1,24 +1,19 @@
 ﻿#if UNITY_EDITOR
 
-using System;
 using System.Diagnostics;
 using Angar.Views;
+using EditorViewFramework;
 using UnityEditor;
 using UnityEngine.SceneManagement;
 
 namespace Angar
 {
-    public class EditModeController
+    public class EditModeController : Window
     {
         [MenuItem("Angar/Object editor(new)")]
         public static void Open()
         {
-            var model = new PoolEditorModel();
-
-            var view = EditorWindow.GetWindow<PoolEditorView>(false, "Angar :: Scene editor");
-            view.Initialize(model);
-
-            var controller = new EditModeController(model, view);
+            var window = GetWindow<EditModeController>(false, "Angar :: Scene editor");
         }
 
 
@@ -28,7 +23,20 @@ namespace Angar
         public PoolEditorModel Model { get; set; }
         public PoolEditorView View { get; set; }
 
-        public EditModeController(PoolEditorModel model, PoolEditorView view)
+
+        public override void PostInit()
+        {
+            var model = new PoolEditorModel();
+
+            var view = new PoolEditorView(model);
+
+            Initialize(model, view);
+
+            MainControll = view;
+        }
+
+
+        public void Initialize(PoolEditorModel model, PoolEditorView view)
         {
             Model = model;
             View = view;
@@ -48,17 +56,12 @@ namespace Angar
             AngarEditorSettings.AddedUpdaterEvent += AngarStaticSettingsOnAddedUpdaterEvent;
             AngarEditorSettings.RemovedUpdaterEvent += AngarStaticSettingsOnRemovedUpdaterEvent;
 
-            EditorApplication.update += Update;
+            EditorApplication.update += _Update;
 
             Model.RefreshUpdaters();
         }
 
-        private void ViewOnEventRemoveObjects()
-        {
-            Model.RemoveFindedObjects();
-        }
-
-        ~EditModeController()
+        public void OnDestroy()
         {
             SceneManager.sceneLoaded -= EditorSceneManagerOnSceneLoaded;
             SceneManager.sceneUnloaded -= EditorSceneManagerOnSceneUnloaded;
@@ -66,8 +69,16 @@ namespace Angar
             AngarEditorSettings.AddedUpdaterEvent -= AngarStaticSettingsOnAddedUpdaterEvent;
             AngarEditorSettings.RemovedUpdaterEvent -= AngarStaticSettingsOnRemovedUpdaterEvent;
 
-            EditorApplication.update -= Update;
+            EditorApplication.update -= _Update;
         }
+
+
+
+        private void ViewOnEventRemoveObjects()
+        {
+            Model.RemoveFindedObjects();
+        }
+
 
 
         private void ViewOnEventChangeEditMode(bool b)
@@ -91,7 +102,7 @@ namespace Angar
             }
         }
 
-        private void Update()
+        private void _Update()
         {
             Model.Update(_stopwatch.ElapsedMilliseconds / 1000.0f);
             _stopwatch.Reset();

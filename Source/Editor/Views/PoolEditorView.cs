@@ -9,7 +9,7 @@ using Object = UnityEngine.Object;
 
 namespace Angar.Views
 {
-    public class PoolEditorView : Window
+    public class PoolEditorView : Controll
     {
         public PoolEditorModel Model { get; set; }
 
@@ -19,6 +19,18 @@ namespace Angar.Views
         public event Action EventRemoveObjects;
 
         private ControllVerticalLayout UpdatersList;
+
+        private Controll MainControll;
+
+
+
+
+        public PoolEditorView(PoolEditorModel model) : base(null)
+        {
+            Initialize(model);
+        }
+
+
 
         public void Initialize(PoolEditorModel model)
         {
@@ -97,6 +109,13 @@ namespace Angar.Views
             if (EventChangeEditMode != null)
                 EventChangeEditMode(obj);
         }
+
+
+        public override void Draw()
+        {
+            MainControll.Draw();
+        }
+
 
         class InternalControllUpdate : Controll
         {
