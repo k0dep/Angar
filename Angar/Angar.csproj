@@ -60,7 +60,7 @@
     <Compile Include="Source\Core\PositionTargetSource.cs" />
     <Compile Include="Source\Core\PositionUpdater.cs" />
     <Compile Include="Source\Editor\EditModeController.cs" />
-    <Compile Include="Source\Editor\Importers\ScenePrefabImporterEditor.cs" />
+    <Compile Include="Source\Editor\Importers\ScenePrefabImporterController.cs" />
     <Compile Include="Source\Editor\Importers\Views\ScenePrefabImporterView.cs" />
     <Compile Include="Source\Editor\PoolEditorModel.cs" />
     <Compile Include="Source\Editor\Views\PoolEditorView.cs" />
@@ -70,8 +70,10 @@
     <Compile Include="Source\Foctories\IPoolDatasetFactory.cs" />
     <Compile Include="Source\Foctories\IPoolDataSetItemFactory.cs" />
     <Compile Include="Source\Foctories\ITargetableFactory.cs" />
-    <Compile Include="Source\Foctories\MonoPoolDataSetFactory.cs" />
-    <Compile Include="Source\Foctories\MonoPoolFactory.cs" />
+    <Compile Include="Source\Foctories\ListEngineFactory.cs" />
+    <Compile Include="Source\Foctories\OctreeEngineFactory.cs" />
+    <Compile Include="Source\Foctories\PoolDataSetFactory.cs" />
+    <Compile Include="Source\Foctories\PoolFactory.cs" />
     <Compile Include="Source\Foctories\PositionUpdaterFactory.cs" />
     <Compile Include="Source\Importing\IImporter.cs" />
     <Compile Include="Source\Importing\ImportTargets.cs" />

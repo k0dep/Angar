@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace Angar.Importers.Views
 {
-    public class ScenePrefabImporterView : Window
+    public class ScenePrefabImporterView : Controll
     {
         public ObservableList<PrefabReference> PrefabListModelAccess { get; set; }
 
@@ -21,15 +21,41 @@ namespace Angar.Importers.Views
         public event Action<ImportTargets> EventImportTargetChanged;
 
         public ImportTargets TargetClass { get; set; }
-        public string DatasetFolder { get; set; }
+
+        public string DatasetFolder
+        {
+            get
+            {
+                if (EditorPrefs.HasKey("Angar.ScenePrefabImport.DatasetPrefix"))
+                    return EditorPrefs.GetString("Angar.ScenePrefabImport.DatasetPrefix");
+
+                EditorPrefs.SetString("Angar.ScenePrefabImport.DatasetPrefix", "Assets/Pooling/DataSets");
+                return "Assets/Pooling/DataSets";
+            }
+            set
+            {
+                EditorPrefs.SetString("Angar.ScenePrefabImport.DatasetPrefix", value);
+            }
+        }
+
         public string DatasetAssetPrefix { get; set; }
 
         private ControllVerticalLayout PrefabiList;
 
+        public ControllVerticalLayout MainControll { get; set; }
+
+        public ScenePrefabImporterView() : base(null)
+        {
+        }
+
+        public override void Draw()
+        {
+            MainControll.Draw();
+        }
+
         public void Initialize(ObservableList<PrefabReference> prefabListModelAccess)
         {
             PrefabListModelAccess = prefabListModelAccess;
-            DatasetFolder = "Assets/Pooling/DataSets";
             DatasetAssetPrefix = "Dataset_Prefab_";
 
             PrefabListModelAccess.Changed += CreateListCollection;
@@ -120,6 +146,7 @@ namespace Angar.Importers.Views
                 layout.DrawEnabled();
             }
         }
+
     }
 
     public class PrefabReference

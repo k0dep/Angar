@@ -1,8 +1,10 @@
 ﻿#if UNITY_EDITOR
 
-using System.Diagnostics;
+using Angar.Importers;
+using Angar.Importers.Views;
 using Angar.Views;
 using EditorViewFramework;
+using System.Diagnostics;
 using UnityEditor;
 using UnityEngine.SceneManagement;
 
@@ -10,10 +12,10 @@ namespace Angar
 {
     public class EditModeController : Window
     {
-        [MenuItem("Angar/Object editor(new)")]
+        [MenuItem("Window/Angar")]
         public static void Open()
         {
-            var window = GetWindow<EditModeController>(false, "Angar :: Scene editor");
+            var window = GetWindow<EditModeController>(false, "Angar :: editor");
         }
 
 
@@ -28,7 +30,10 @@ namespace Angar
         {
             var model = new PoolEditorModel();
 
-            var view = new PoolEditorView(model);
+            var sceneImporterView = new ScenePrefabImporterView();
+            var importerController = new ScenePrefabImporterController(sceneImporterView);
+
+            var view = new PoolEditorView(model, sceneImporterView);
 
             Initialize(model, view);
 

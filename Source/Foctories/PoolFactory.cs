@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Angar.Factory
 {
-    public class MonoPoolFactory : ITargetableFactory<IPool<GameObject>>
+    public class PoolFactory : ITargetableFactory<IPool<GameObject>>
     {
         public IPool<GameObject> Create(GameObject target)
         {

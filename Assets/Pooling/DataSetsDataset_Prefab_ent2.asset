@@ -6284,13 +6284,6 @@ MonoBehaviour:
     _floatArray: []
     _stringArray: []
     _mapping: []
-  - _position: {x: 357.91803, y: 55.08984, z: -7.5013123}
-    _rotation: {x: 0, y: 0.90896153, z: 0}
-    _scale: {x: 0.928004, y: 0.928004, z: 0.928004}
-    _intArray: 
-    _floatArray: []
-    _stringArray: []
-    _mapping: []
   - _position: {x: -218.65378, y: 44.655006, z: -103.54346}
     _rotation: {x: 0, y: 0.8909223, z: 0}
     _scale: {x: 1.0093237, y: 1.0093237, z: 1.0093237}

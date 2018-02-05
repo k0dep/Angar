@@ -6,4 +6,9 @@ namespace Angar.Factory
     {
         TType Create(GameObject target);
     }
+
+    public interface ITargetableFactory
+    {
+        void Create(GameObject target);
+    }
 }

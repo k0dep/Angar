@@ -1,6 +1,7 @@
 ﻿#if UNITY_EDITOR
 
 using System;
+using Angar.Importers.Views;
 using EditorViewFramework;
 using EditorViewFramework.Controlls;
 using UnityEditor;
@@ -25,14 +26,14 @@ namespace Angar.Views
 
 
 
-        public PoolEditorView(PoolEditorModel model) : base(null)
+        public PoolEditorView(PoolEditorModel model, ScenePrefabImporterView scenePrefabImporterView) : base(null)
         {
-            Initialize(model);
+            Initialize(model, scenePrefabImporterView);
         }
 
 
 
-        public void Initialize(PoolEditorModel model)
+        public void Initialize(PoolEditorModel model, ScenePrefabImporterView sceneImportView)
         {
             Model = model;
 
@@ -55,6 +56,9 @@ namespace Angar.Views
             var proxyUpdateControll = new InternalControllUpdate(new ControllVerticalLayout(updatersLayout, editModeToggle));
             proxyUpdateControll.EventBeforeDraw += UpdateUpdaterList;
 
+
+            // create tabs view
+
             var generalTab = new TabView("Edit mode", proxyUpdateControll);
            
             var removeObjectsBtn = new ControllButton("Remove selected object");
@@ -64,9 +68,12 @@ namespace Angar.Views
                     EventRemoveObjects();
             };
 
+
             var objectsEdit = new TabView("Edit objects", removeObjectsBtn);
 
-            var tabsControll = new ControllTabView(generalTab, objectsEdit);
+            var importingButton = new TabView("Scene importing", sceneImportView);
+
+            var tabsControll = new ControllTabView(generalTab, objectsEdit, importingButton);
 
             MainControll = tabsControll;
         }

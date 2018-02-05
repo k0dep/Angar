@@ -4,21 +4,12 @@ using Angar.Factory;
 using Angar.Foctories;
 using Angar.Importers.Views;
 using Angar.Importing;
-using UnityEditor;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace Angar.Importers
 {
-    public class ScenePrefabImporterEditor
+    public class ScenePrefabImporterController
     {
-        [MenuItem("Angar/Importers/Prefab scene importer")]
-        public static void Open()
-        {
-            var view = EditorWindow.GetWindow<ScenePrefabImporterView>(false, "Angar :: Scene prefab importer");
-            var Importer = new ScenePrefabImporterEditor(view);
-        }
-
         public ObservableList<PrefabReference> PrefabListModel { get; private set; }
 
         public ScenePrefabImporterView View { get; private set; }
@@ -27,17 +18,17 @@ namespace Angar.Importers
 
         public PoolingConfigurationMerger Merger { get; set; }
 
-        public ScenePrefabImporterEditor(ScenePrefabImporterView view)
+        public ScenePrefabImporterController(ScenePrefabImporterView view)
         {
             PrefabListModel = new ObservableList<PrefabReference>();
             View = view;
 
             Merger = new PoolingConfigurationMerger(
-                new MonoPoolFactory(),
-                new MonoPoolDataSetFactory(),
+                new PoolFactory(),
+                new PoolDataSetFactory(),
                 new DataSetItemFactory(),
                 new DataSetProxyFactory(),
-                new MonoPositionUpdaterFactory());
+                new PositionUpdaterFactory(new OctreeEngineFactory(0, 100, 100, 100)));
 
             View.Initialize(PrefabListModel);
 
@@ -70,7 +61,7 @@ namespace Angar.Importers
 
         private void ViewOnEventCreate()
         {
-            var importDatasetResult = Importer.Import(new MonoPoolDataSetFactory(), new DataSetItemFactory());
+            var importDatasetResult = Importer.Import(new PoolDataSetFactory(), new DataSetItemFactory());
 
             var dsFactory = new DataSetAssetFactory();
             Merger.DatasetFactory = dsFactory;

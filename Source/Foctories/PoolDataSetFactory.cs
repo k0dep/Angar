@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Angar.Factory
 {
-    public class MonoPoolDataSetFactory : IPoolDataSetFactory
+    public class PoolDataSetFactory : IPoolDataSetFactory
     {
         public IPoolDataSet Create()
         {
