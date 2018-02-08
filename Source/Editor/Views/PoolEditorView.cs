@@ -18,11 +18,12 @@ namespace Angar.Views
         public event Action<IPositionUpdater, bool> EventChangeActiveUpdater;
         public event Action<bool> EventChangeEditMode;
         public event Action EventRemoveObjects;
+        public event Action EventCreateRoot;
 
         private ControllVerticalLayout UpdatersList;
 
         private Controll MainControll;
-
+        private Controll _createRootControll;
 
 
 
@@ -76,6 +77,15 @@ namespace Angar.Views
             var tabsControll = new ControllTabView(generalTab, objectsEdit, importingButton);
 
             MainControll = tabsControll;
+
+            var createBtn = new ControllButton("Create root");
+            createBtn.EventClick += () =>
+            {
+                if (EventCreateRoot != null)
+                    EventCreateRoot();
+            };
+
+            _createRootControll = createBtn;
         }
 
         private void UpdateUpdaterList()
@@ -120,7 +130,10 @@ namespace Angar.Views
 
         public override void Draw()
         {
-            MainControll.Draw();
+            if(Model.ExistAngarRoot)
+                MainControll.Draw();
+            else
+                _createRootControll.Draw();
         }
 
 

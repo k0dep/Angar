@@ -38,6 +38,9 @@ namespace Angar.Importers
             view.PoolRootChanged += o => Merger.PoolRoot = o;
             View.EventImportTargetChanged += targets => SetFinder(targets);
 
+            var poolRoot = Object.FindObjectOfType<PositionTargetSource>();
+            Merger.PoolRoot = View.PoolRoot = poolRoot == null ? null : poolRoot.gameObject;
+
             SetFinder(View.TargetClass);
         }
 

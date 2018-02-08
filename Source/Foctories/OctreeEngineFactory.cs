@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Angar.Factory
 {
-    public class OctreeEngineFactory : ITargetableFactory
+    public class OctreeEngineFactory : IEngineSetupFactory
     {
         public float NearRadius { get; set; }
         public float FarRadius { get; set; }
@@ -19,13 +19,19 @@ namespace Angar.Factory
         }
 
 
-        public void Create(GameObject target)
+        public void Create(GameObject target, IPositionUpdaterComponent updater)
         {
             var engine = target.AddComponent<OctreeEngineSetup>();
             engine.NearRadius = NearRadius;
             engine.FarRadius = FarRadius;
             engine.WorldNodeSize = MinimumNodeSize;
             engine.WorldStartSize = StartWorldSize;
+            engine.Updater = updater;
         }
+    }
+
+    public interface IEngineSetupFactory
+    {
+        void Create(GameObject target, IPositionUpdaterComponent updater);
     }
 }

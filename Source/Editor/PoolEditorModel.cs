@@ -11,6 +11,17 @@ namespace Angar
     {
         public IList<EditorPoolInstance> UpdatersState { get; set; }
 
+        public bool ExistAngarRoot
+        {
+            get
+            {
+                if (UpdatersState.Count == 0)
+                    return UnityEngine.Object.FindObjectsOfType<MonoBehaviour>().Any(t => t is IPostionTargetSource);
+
+                return UpdatersState.Any(t => t.Updater.TargetSource != null);
+            }
+        }
+
         public bool Editing
         {
             get { return AngarEditorSettings.EditMode; }
@@ -32,7 +43,7 @@ namespace Angar
 
         public void EnterEditMode()
         {
-            var pools = Object.FindObjectsOfType<Component>()
+            var pools = UnityEngine.Object.FindObjectsOfType<Component>()
                 .Select(t => t as IPool<GameObject>)
                 .Where(t => t != null)
                 .ToArray();
@@ -45,7 +56,7 @@ namespace Angar
 
             Editing = true;
 
-            var initializables = Object.FindObjectsOfType<Component>()
+            var initializables = UnityEngine.Object.FindObjectsOfType<Component>()
                 .Select(t => t as IPoolSystemInitializable)
                 .Where(t => t != null)
                 .Where(t =>
@@ -60,7 +71,7 @@ namespace Angar
                 poolSystemInitializable.Initialize();
             }
 
-            initializables = Object.FindObjectsOfType<Component>()
+            initializables = UnityEngine.Object.FindObjectsOfType<Component>()
                 .Select(t => t as IPoolSystemInitializable)
                 .Where(t => t != null)
                 .Where(t => !(t is IPositionUpdater))
@@ -72,9 +83,15 @@ namespace Angar
             }
         }
 
+        public void CreateRoot()
+        {
+            var root = new GameObject("AngarRoot");
+            root.AddComponent<PositionTargetSource>();
+        }
+
         public void ExitEditMode()
         {
-            var clearables = Object.FindObjectsOfType<Component>()
+            var clearables = UnityEngine.Object.FindObjectsOfType<Component>()
                 .Select(t => t as IPoolSystemClearable).Where(t => t != null).ToArray();
 
             foreach (var poolSystemClearable in clearables)
@@ -100,7 +117,7 @@ namespace Angar
 
         public void RefreshUpdaters()
         {
-            var updaters = Object.FindObjectsOfType<Component>()
+            var updaters = UnityEngine.Object.FindObjectsOfType<Component>()
                 .Select(t => t as IPositionUpdater)
                 .Where(t => t != null)
                 .ToList();

@@ -4,9 +4,9 @@ namespace Angar.Factory
 {
     public class PositionUpdaterFactory : ITargetableFactory<IPositionUpdater>
     {
-        public ITargetableFactory EngineFactory { get; set; }
+        public IEngineSetupFactory EngineFactory { get; set; }
 
-        public PositionUpdaterFactory(ITargetableFactory engineFactory)
+        public PositionUpdaterFactory(IEngineSetupFactory engineFactory)
         {
             EngineFactory = engineFactory;
         }
@@ -14,7 +14,7 @@ namespace Angar.Factory
         public IPositionUpdater Create(GameObject target)
         {
             var updater = target.AddComponent<PositionUpdater>();
-
+            EngineFactory.Create(target, updater);
             return updater;
         }
     }

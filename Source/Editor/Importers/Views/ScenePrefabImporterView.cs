@@ -13,6 +13,7 @@ namespace Angar.Importers.Views
     public class ScenePrefabImporterView : Controll
     {
         public ObservableList<PrefabReference> PrefabListModelAccess { get; set; }
+        public GameObject PoolRoot { get; set; }
 
         public event Action<GameObject> EventRemovePrefab;
         public event Action EventCollect;
@@ -67,14 +68,17 @@ namespace Angar.Importers.Views
                     "Terrain trees"));
             importTargetClass.EventChangeSelected += targets =>
             {
+                TargetClass = targets;
                 if (EventImportTargetChanged != null)
                     EventImportTargetChanged(targets);
             };
+            importTargetClass.Selected = ImportTargets.SceneObjects;
+            TargetClass = ImportTargets.SceneObjects;
 
             var datasetFolderFile = new ControllTextField("DataSets folder", DatasetFolder);
             datasetFolderFile.EventChange += s => DatasetFolder = s;
 
-            var poolRootName = new ControllObjectField<GameObject>("Pool root");
+            var poolRootName = new ControllObjectFieldAccess<GameObject>("Pool root", () => PoolRoot, o => PoolRoot = o);
             poolRootName.EventChange += o => PoolRootChanged(o);
 
             var dataseAssetPrefix = new ControllTextField("DatsSets asset prefix", DatasetAssetPrefix);

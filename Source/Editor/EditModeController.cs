@@ -1,11 +1,13 @@
 ﻿#if UNITY_EDITOR
 
+using System;
 using Angar.Importers;
 using Angar.Importers.Views;
 using Angar.Views;
 using EditorViewFramework;
 using System.Diagnostics;
 using UnityEditor;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Angar
@@ -54,6 +56,7 @@ namespace Angar
             View.EventChangeActiveUpdater += ViewOnEventChangeActiveUpdater;
             View.EventChangeEditMode += ViewOnEventChangeEditMode;
             View.EventRemoveObjects += ViewOnEventRemoveObjects;
+            view.EventCreateRoot += ViewOnEventCreateRoot;
 
             SceneManager.sceneLoaded += EditorSceneManagerOnSceneLoaded;
             SceneManager.sceneUnloaded += EditorSceneManagerOnSceneUnloaded;
@@ -64,6 +67,11 @@ namespace Angar
             EditorApplication.update += _Update;
 
             Model.RefreshUpdaters();
+        }
+
+        private void ViewOnEventCreateRoot()
+        {
+            Model.CreateRoot();
         }
 
         public void OnDestroy()
