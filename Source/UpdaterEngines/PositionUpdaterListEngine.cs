@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using Angar.Data;
+﻿using Angar.Data;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Angar.PositionEngine

@@ -69,6 +69,7 @@
     <Compile Include="Source\Core\DataSetItem.cs" />
     <Compile Include="Source\Core\DataSetSource.cs" />
     <Compile Include="Source\Core\ListEngineSetup.cs" />
+    <Compile Include="Source\Core\NodeEngineSetup.cs" />
     <Compile Include="Source\Core\OctreeEngineSetup.cs" />
     <Compile Include="Source\Editor\EditModeController.cs" />
     <Compile Include="Source\Editor\Importers\ScenePrefabImporterController.cs" />
@@ -115,6 +116,7 @@
     <Compile Include="Source\Core\PositionTargetSource.cs" />
     <Compile Include="Source\Core\PositionUpdater.cs" />
     <Compile Include="Source\UpdaterEngines\PositionUpdaterListEngine.cs" />
+    <Compile Include="Source\UpdaterEngines\PositionUpdaterNodeEngine.cs" />
     <Compile Include="Source\UpdaterEngines\PositionUpdaterOctreeEngine.cs" />
     <Compile Include="Source\SmartPoolStaticSettings.cs" />
   </ItemGroup>
