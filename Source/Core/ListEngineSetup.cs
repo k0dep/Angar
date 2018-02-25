@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Angar.PositionEngine;
+using UnityEngine;
 
-namespace Angar.PositionEngine
+namespace Angar
 {
     [ExecuteInEditMode]
     public class ListEngineSetup : MonoBehaviour, IPoolSystemInitializable, IPoolSystemClearable
@@ -23,6 +24,11 @@ namespace Angar.PositionEngine
             set { _updater = value as Component; }
         }
 
+        public void Awake()
+        {
+            if (Application.isPlaying)
+                Initialize();
+        }
 
         public void Initialize()
         {

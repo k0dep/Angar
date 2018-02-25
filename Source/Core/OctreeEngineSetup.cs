@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Angar.PositionEngine;
+using UnityEngine;
 
-namespace Angar.PositionEngine
+namespace Angar
 {
     [ExecuteInEditMode]
     public class OctreeEngineSetup : MonoBehaviour, IPoolSystemInitializable, IPoolSystemClearable
@@ -36,6 +37,12 @@ namespace Angar.PositionEngine
             _engine = null;
         }
 
+
+        public void Start()
+        {
+            if(Application.isPlaying)
+                Initialize();
+        }
 
         public void Update()
         {

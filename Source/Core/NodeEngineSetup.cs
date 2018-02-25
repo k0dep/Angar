@@ -1,12 +1,13 @@
 ﻿using Angar.PositionEngine;
 using UnityEngine;
 
-namespace Angar.Source.Core
+namespace Angar
 {
+    [AddComponentMenu("Angar/Node engine")]
     [ExecuteInEditMode]
     public class NodeEngineSetup : MonoBehaviour, IPoolSystemInitializable, IPoolSystemClearable
     {
-        private IPositionUpdaterEngine _engine;
+        private PositionUpdaterNodeEngine _engine;
 
         [SerializeField]
         private Component _updater;
@@ -20,6 +21,12 @@ namespace Angar.Source.Core
         {
             get { return _updater as IPositionUpdaterComponent; }
             set { _updater = value as Component; }
+        }
+
+        public void Awake()
+        {
+            if (Application.isPlaying)
+                Initialize();
         }
 
 
@@ -63,6 +70,14 @@ namespace Angar.Source.Core
             if (NodeSize <= 0)
                 NodeSize = 1.0f;
         }
+
+#if UNITY_EDITOR
+        public void OnDrawGizmosSelected()
+        {
+            _engine?.DrawBoxes();
+        }
+
+#endif
     }
 
 }

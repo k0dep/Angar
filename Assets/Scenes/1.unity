@@ -187,13 +187,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 272104705}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.120988116, y: 0.5691921, z: -0.08518846, w: 0.8087801}
+  m_LocalPosition: {x: -1002.7, y: 124.1, z: -81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 17.019001, y: 70.273, z: -0.004}
 --- !u!1 &358433662
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,8 +221,8 @@ MonoBehaviour:
   m_Script: {fileID: 2142533201, guid: a54b6da75e331b24688c525e67b14776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UseOther: 0
-  OtherTransform: {fileID: 0}
+  UseOther: 1
+  OtherTransform: {fileID: 272104709}
   DontUseSceneVirtualCamera: 0
 --- !u!4 &358433664
 Transform:
@@ -238,7 +238,7 @@ Transform:
   - {fileID: 1849899445}
   - {fileID: 815675087}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &565520808
 GameObject:
@@ -312,9 +312,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _TargetSource: {fileID: 358433663}
   _DataSetSource: {fileID: 565520813}
-  MaximumLoadPerUpdate: 1
-  MaximumUnLoadPerUpdate: 1
-  DelayTime: 0.1
+  MaximumLoadPerUpdate: 10
+  MaximumUnLoadPerUpdate: 10
+  DelayTime: 0.5
 --- !u!114 &565520813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,13 +350,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 565520808}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1321045315, guid: a54b6da75e331b24688c525e67b14776, type: 3}
+  m_Script: {fileID: 1213051898, guid: a54b6da75e331b24688c525e67b14776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _updater: {fileID: 565520812}
   NearRadius: 0
-  FarRadius: 300
-  NodeSize: 1
+  FarRadius: 100
+  NodeSize: 20
 --- !u!1 &634534105
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,7 +426,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &815675086
 GameObject:
@@ -500,8 +500,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _TargetSource: {fileID: 358433663}
   _DataSetSource: {fileID: 815675091}
-  MaximumLoadPerUpdate: 1
-  MaximumUnLoadPerUpdate: 1
+  MaximumLoadPerUpdate: 10
+  MaximumUnLoadPerUpdate: 10
   DelayTime: 0.1
 --- !u!114 &815675091
 MonoBehaviour:
@@ -538,67 +538,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 815675086}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1321045315, guid: a54b6da75e331b24688c525e67b14776, type: 3}
+  m_Script: {fileID: 1213051898, guid: a54b6da75e331b24688c525e67b14776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _updater: {fileID: 815675090}
   NearRadius: 0
-  FarRadius: 300
-  NodeSize: 1
---- !u!1001 &1542266716
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4375506587896648, guid: d881f0b00bfacf24ba4c541a61cc0567, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 356.69995
-      objectReference: {fileID: 0}
-    - target: {fileID: 4375506587896648, guid: d881f0b00bfacf24ba4c541a61cc0567, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 55.0317
-      objectReference: {fileID: 0}
-    - target: {fileID: 4375506587896648, guid: d881f0b00bfacf24ba4c541a61cc0567, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -3.2398376
-      objectReference: {fileID: 0}
-    - target: {fileID: 4375506587896648, guid: d881f0b00bfacf24ba4c541a61cc0567, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4375506587896648, guid: d881f0b00bfacf24ba4c541a61cc0567, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4375506587896648, guid: d881f0b00bfacf24ba4c541a61cc0567, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4375506587896648, guid: d881f0b00bfacf24ba4c541a61cc0567, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4375506587896648, guid: d881f0b00bfacf24ba4c541a61cc0567, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4375506587896648, guid: d881f0b00bfacf24ba4c541a61cc0567, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4375506587896648, guid: d881f0b00bfacf24ba4c541a61cc0567, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4375506587896648, guid: d881f0b00bfacf24ba4c541a61cc0567, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: d881f0b00bfacf24ba4c541a61cc0567, type: 2}
-  m_IsPrefabParent: 0
+  FarRadius: 100
+  NodeSize: 20
 --- !u!1 &1701208734
 GameObject:
   m_ObjectHideFlags: 0
@@ -662,7 +608,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1849899444
 GameObject:
@@ -736,8 +682,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _TargetSource: {fileID: 358433663}
   _DataSetSource: {fileID: 1849899449}
-  MaximumLoadPerUpdate: 1
-  MaximumUnLoadPerUpdate: 1
+  MaximumLoadPerUpdate: 10
+  MaximumUnLoadPerUpdate: 10
   DelayTime: 0.1
 --- !u!114 &1849899449
 MonoBehaviour:
@@ -774,10 +720,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1849899444}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1321045315, guid: a54b6da75e331b24688c525e67b14776, type: 3}
+  m_Script: {fileID: 1213051898, guid: a54b6da75e331b24688c525e67b14776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _updater: {fileID: 1849899448}
   NearRadius: 0
-  FarRadius: 300
-  NodeSize: 1
+  FarRadius: 100
+  NodeSize: 20
