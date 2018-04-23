@@ -4,46 +4,43 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FA763AE1-B9C6-4138-AD2C-C09AB720DDF7}</ProjectGuid>
+    <ProjectGuid>{509D6F9E-0B96-4A7D-9CC1-8ADFA4F3ADEA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Angar</RootNamespace>
+    <RootNamespace>Angar.Editor</RootNamespace>
     <AssemblyName>Angar.Editor</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
+    <TargetFrameworkProfile>Unity Full v3.5</TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\Assets\Plugins\Angar\</OutputPath>
+    <OutputPath>..\Assets\Plugins\Angar\Editor\</OutputPath>
     <DefineConstants>TRACE;DEBUG;UNITY_EDITOR</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>none</DebugType>
+    <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\Assets\Plugins\Angar\</OutputPath>
+    <OutputPath>..\Assets\Plugins\Angar\Editor\</OutputPath>
     <DefineConstants>TRACE;UNITY_EDITOR</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EditorViewFramework">
-      <HintPath>..\Libs\EditorViewFramework.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Core">
-      <Private>False</Private>
+    <Reference Include="System.Core" />
+    <Reference Include="Uniforms">
+      <HintPath>..\Libs\Uniforms.dll</HintPath>
     </Reference>
-    <Reference Include="System.Threading.Tasks">
-      <HintPath>..\Libs\System.Threading.Tasks.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Uniforms.TypeControlls">
+      <HintPath>..\Libs\Uniforms.TypeControlls.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor">
+    <Reference Include="UnityEditor, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Library\UnityAssemblies\UnityEditor.dll</HintPath>
       <Private>False</Private>
     </Reference>
@@ -65,61 +62,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Editor\EditModeController.cs" />
+    <Compile Include="Editor\Importers\ScenePrefabImporterController.cs" />
+    <Compile Include="Editor\Importers\Views\ScenePrefabImporterView.cs" />
+    <Compile Include="Editor\PoolEditorModel.cs" />
+    <Compile Include="Editor\Views\PoolEditorView.cs" />
+    <Compile Include="Importing\ImportTargets.cs" />
+    <Compile Include="Importing\ISceneObjectImportFinder.cs" />
+    <Compile Include="Importing\PoolingConfigurationMerger.cs" />
+    <Compile Include="Importing\ScenePrefabDataSet.cs" />
+    <Compile Include="Importing\ScenePrefabObjectFinder.cs" />
+    <Compile Include="Importing\TerrainPrototypeImportFinder.cs" />
+    <Compile Include="PoolObjectEditModeUtility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Source\Core\DataSetItem.cs" />
-    <Compile Include="Source\Core\DataSetSource.cs" />
-    <Compile Include="Source\Core\ListEngineSetup.cs" />
-    <Compile Include="Source\Core\NodeEngineSetup.cs" />
-    <Compile Include="Source\Core\OctreeEngineSetup.cs" />
-    <Compile Include="Source\Editor\EditModeController.cs" />
-    <Compile Include="Source\Editor\Importers\ScenePrefabImporterController.cs" />
-    <Compile Include="Source\Editor\Importers\Views\ScenePrefabImporterView.cs" />
-    <Compile Include="Source\Editor\PoolEditorModel.cs" />
-    <Compile Include="Source\Editor\Views\PoolEditorView.cs" />
-    <Compile Include="Source\Foctories\DataSetAssetFactory.cs" />
-    <Compile Include="Source\Foctories\DataSetItemFactory.cs" />
-    <Compile Include="Source\Foctories\DataSetProxyFactory.cs" />
-    <Compile Include="Source\Foctories\IPoolDatasetFactory.cs" />
-    <Compile Include="Source\Foctories\IPoolDataSetItemFactory.cs" />
-    <Compile Include="Source\Foctories\ITargetableFactory.cs" />
-    <Compile Include="Source\Foctories\ListEngineFactory.cs" />
-    <Compile Include="Source\Foctories\PoolDataSetFactory.cs" />
-    <Compile Include="Source\Foctories\PoolFactory.cs" />
-    <Compile Include="Source\Foctories\OctreeEngineFactory.cs" />
-    <Compile Include="Source\Foctories\PositionUpdaterFactory.cs" />
-    <Compile Include="Source\Importing\IImporter.cs" />
-    <Compile Include="Source\Importing\ImportTargets.cs" />
-    <Compile Include="Source\Importing\ISceneObjectImportFinder.cs" />
-    <Compile Include="Source\Importing\PoolingConfigurationMerger.cs" />
-    <Compile Include="Source\Importing\ScenePrefabDataSet.cs" />
-    <Compile Include="Source\Importing\ScenePrefabObjectFinder.cs" />
-    <Compile Include="Source\Importing\TerrainPrototypeImportFinder.cs" />
-    <Compile Include="Source\Core\Integer.cs" />
-    <Compile Include="Source\Interfaces\IPool.cs" />
-    <Compile Include="Source\Interfaces\IPoolDataSet.cs" />
-    <Compile Include="Source\Interfaces\IPoolDataSetProxy.cs" />
-    <Compile Include="Source\Interfaces\IPoolEvents.cs" />
-    <Compile Include="Source\Interfaces\IPoolObjectEvents.cs" />
-    <Compile Include="Source\Interfaces\IPoolObjectOverrideData.cs" />
-    <Compile Include="Source\Interfaces\IPoolSystemClearable.cs" />
-    <Compile Include="Source\Interfaces\IPoolSystemInitializable.cs" />
-    <Compile Include="Source\Interfaces\IPositionUpdater.cs" />
-    <Compile Include="Source\Interfaces\IPositionUpdaterEngine.cs" />
-    <Compile Include="Source\Interfaces\IPostionTargetSource.cs" />
-    <Compile Include="Source\Octree\PointOctree.cs" />
-    <Compile Include="Source\Octree\PointOctreeNode.cs" />
-    <Compile Include="Source\Core\Pool.cs" />
-    <Compile Include="Source\Core\PoolDataSet.cs" />
-    <Compile Include="Source\Core\PoolLoader.cs" />
-    <Compile Include="Source\PoolObjectEditModeUtility.cs" />
-    <Compile Include="Source\Core\PoolObjectEnabler.cs" />
-    <Compile Include="Source\Core\PositionTargetSource.cs" />
-    <Compile Include="Source\Core\PositionUpdater.cs" />
-    <Compile Include="Source\UpdaterEngines\PositionUpdaterListEngine.cs" />
-    <Compile Include="Source\UpdaterEngines\PositionUpdaterNodeEngine.cs" />
-    <Compile Include="Source\UpdaterEngines\PositionUpdaterOctreeEngine.cs" />
-    <Compile Include="Source\SmartPoolStaticSettings.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Angar\Angar.csproj">
+      <Project>{ed753120-d8ad-41f5-beec-f5eb7dadc48e}</Project>
+      <Name>Angar</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

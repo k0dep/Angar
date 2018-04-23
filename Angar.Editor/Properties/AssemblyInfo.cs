@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // Общие сведения об этой сборке предоставляются следующим набором
@@ -8,9 +7,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Angar.Editor")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Angar.Editor")]
-[assembly: AssemblyCopyright("Copyright ©  2018")]
+[assembly: AssemblyCompany("Stanislav Petrov")]
+[assembly: AssemblyProduct("Angar")]
+[assembly: AssemblyCopyright("Copyright © Stanislav Petrov (http://kodep.pro) 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("fa763ae1-b9c6-4138-ad2c-c09ab720ddf7")]
+[assembly: Guid("509d6f9e-0b96-4a7d-9cc1-8adfa4f3adea")]
 
 // Сведения о версии сборки состоят из следующих четырех значений:
 //

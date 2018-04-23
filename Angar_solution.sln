@@ -3,9 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angar_solution", "Angar_solution.csproj", "{660775E6-BD03-401F-46BA-314F7D3B0A71}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angar_solution.Editor", "Angar_solution.Editor.csproj", "{C5AE3F7A-15EC-7E1F-9E81-628A0E0ECA33}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angar", "Angar\Angar.csproj", "{ED753120-D8AD-41F5-BEEC-F5EB7DADC48E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angar.Editor", "Angar.Editor\Angar.Editor.csproj", "{FA763AE1-B9C6-4138-AD2C-C09AB720DDF7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angar.Engine.List", "Angar.Engine.List\Angar.Engine.List.csproj", "{69DABCE6-2DC3-4C9B-9B1F-4B1603651C44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angar.Editor", "Angar.Editor\Angar.Editor.csproj", "{509D6F9E-0B96-4A7D-9CC1-8ADFA4F3ADEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angar.Engine.Octree", "Angar.Engine.Octree\Angar.Engine.Octree.csproj", "{0BB475A0-E9E4-4671-815A-0D2B95410609}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angar.Engine.Node", "Angar.Engine.Node\Angar.Engine.Node.csproj", "{B3C69E23-C5D5-4F1B-828A-5FA3643CD015}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,14 +25,30 @@ Global
 		{660775E6-BD03-401F-46BA-314F7D3B0A71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{660775E6-BD03-401F-46BA-314F7D3B0A71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{660775E6-BD03-401F-46BA-314F7D3B0A71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5AE3F7A-15EC-7E1F-9E81-628A0E0ECA33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5AE3F7A-15EC-7E1F-9E81-628A0E0ECA33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5AE3F7A-15EC-7E1F-9E81-628A0E0ECA33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5AE3F7A-15EC-7E1F-9E81-628A0E0ECA33}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ED753120-D8AD-41F5-BEEC-F5EB7DADC48E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ED753120-D8AD-41F5-BEEC-F5EB7DADC48E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED753120-D8AD-41F5-BEEC-F5EB7DADC48E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED753120-D8AD-41F5-BEEC-F5EB7DADC48E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FA763AE1-B9C6-4138-AD2C-C09AB720DDF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FA763AE1-B9C6-4138-AD2C-C09AB720DDF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FA763AE1-B9C6-4138-AD2C-C09AB720DDF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FA763AE1-B9C6-4138-AD2C-C09AB720DDF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69DABCE6-2DC3-4C9B-9B1F-4B1603651C44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69DABCE6-2DC3-4C9B-9B1F-4B1603651C44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69DABCE6-2DC3-4C9B-9B1F-4B1603651C44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69DABCE6-2DC3-4C9B-9B1F-4B1603651C44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{509D6F9E-0B96-4A7D-9CC1-8ADFA4F3ADEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{509D6F9E-0B96-4A7D-9CC1-8ADFA4F3ADEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{509D6F9E-0B96-4A7D-9CC1-8ADFA4F3ADEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{509D6F9E-0B96-4A7D-9CC1-8ADFA4F3ADEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BB475A0-E9E4-4671-815A-0D2B95410609}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BB475A0-E9E4-4671-815A-0D2B95410609}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BB475A0-E9E4-4671-815A-0D2B95410609}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BB475A0-E9E4-4671-815A-0D2B95410609}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3C69E23-C5D5-4F1B-828A-5FA3643CD015}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3C69E23-C5D5-4F1B-828A-5FA3643CD015}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3C69E23-C5D5-4F1B-828A-5FA3643CD015}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3C69E23-C5D5-4F1B-828A-5FA3643CD015}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

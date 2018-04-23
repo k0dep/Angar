@@ -11,14 +11,14 @@
     <AssemblyName>Angar</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
+    <TargetFrameworkProfile>Unity Full v3.5</TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>embedded</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>..\Assets\Plugins\Angar\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;UNITY_EDITOR</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -33,8 +33,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Threading.Tasks">
-      <HintPath>..\Libs\System.Threading.Tasks.dll</HintPath>
+    <Reference Include="UnityEditor">
+      <HintPath>..\Library\UnityAssemblies\UnityEditor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine">
@@ -47,60 +47,40 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IPositionUpdaterBase.cs" />
+    <Compile Include="Interfaces\IPositionUpdaterComponent.cs" />
+    <Compile Include="Interfaces\IPositionUpdaterEvents.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Source\Core\DataSetItem.cs" />
-    <Compile Include="Source\Core\DataSetSource.cs" />
-    <Compile Include="Source\Core\Integer.cs" />
-    <Compile Include="Source\Core\ListEngineSetup.cs" />
-    <Compile Include="Source\Core\NodeEngineSetup.cs" />
-    <Compile Include="Source\Core\OctreeEngineSetup.cs" />
-    <Compile Include="Source\Core\Pool.cs" />
-    <Compile Include="Source\Core\PoolDataSet.cs" />
-    <Compile Include="Source\Core\PoolLoader.cs" />
-    <Compile Include="Source\Core\PoolObjectEnabler.cs" />
-    <Compile Include="Source\Core\PositionTargetSource.cs" />
-    <Compile Include="Source\Core\PositionUpdater.cs" />
-    <Compile Include="Source\Editor\EditModeController.cs" />
-    <Compile Include="Source\Editor\Importers\ScenePrefabImporterController.cs" />
-    <Compile Include="Source\Editor\Importers\Views\ScenePrefabImporterView.cs" />
-    <Compile Include="Source\Editor\PoolEditorModel.cs" />
-    <Compile Include="Source\Editor\Views\PoolEditorView.cs" />
-    <Compile Include="Source\Foctories\DataSetAssetFactory.cs" />
-    <Compile Include="Source\Foctories\DataSetItemFactory.cs" />
-    <Compile Include="Source\Foctories\DataSetProxyFactory.cs" />
-    <Compile Include="Source\Foctories\IPoolDatasetFactory.cs" />
-    <Compile Include="Source\Foctories\IPoolDataSetItemFactory.cs" />
-    <Compile Include="Source\Foctories\ITargetableFactory.cs" />
-    <Compile Include="Source\Foctories\ListEngineFactory.cs" />
-    <Compile Include="Source\Foctories\OctreeEngineFactory.cs" />
-    <Compile Include="Source\Foctories\PoolDataSetFactory.cs" />
-    <Compile Include="Source\Foctories\PoolFactory.cs" />
-    <Compile Include="Source\Foctories\PositionUpdaterFactory.cs" />
-    <Compile Include="Source\Importing\IImporter.cs" />
-    <Compile Include="Source\Importing\ImportTargets.cs" />
-    <Compile Include="Source\Importing\ISceneObjectImportFinder.cs" />
-    <Compile Include="Source\Importing\PoolingConfigurationMerger.cs" />
-    <Compile Include="Source\Importing\ScenePrefabDataSet.cs" />
-    <Compile Include="Source\Importing\ScenePrefabObjectFinder.cs" />
-    <Compile Include="Source\Importing\TerrainPrototypeImportFinder.cs" />
-    <Compile Include="Source\Interfaces\IPool.cs" />
-    <Compile Include="Source\Interfaces\IPoolDataSet.cs" />
-    <Compile Include="Source\Interfaces\IPoolDataSetProxy.cs" />
-    <Compile Include="Source\Interfaces\IPoolEvents.cs" />
-    <Compile Include="Source\Interfaces\IPoolObjectEvents.cs" />
-    <Compile Include="Source\Interfaces\IPoolObjectOverrideData.cs" />
-    <Compile Include="Source\Interfaces\IPoolSystemClearable.cs" />
-    <Compile Include="Source\Interfaces\IPoolSystemInitializable.cs" />
-    <Compile Include="Source\Interfaces\IPositionUpdater.cs" />
-    <Compile Include="Source\Interfaces\IPositionUpdaterEngine.cs" />
-    <Compile Include="Source\Interfaces\IPostionTargetSource.cs" />
-    <Compile Include="Source\Octree\PointOctree.cs" />
-    <Compile Include="Source\Octree\PointOctreeNode.cs" />
-    <Compile Include="Source\PoolObjectEditModeUtility.cs" />
-    <Compile Include="Source\SmartPoolStaticSettings.cs" />
-    <Compile Include="Source\UpdaterEngines\PositionUpdaterListEngine.cs" />
-    <Compile Include="Source\UpdaterEngines\PositionUpdaterNodeEngine.cs" />
-    <Compile Include="Source\UpdaterEngines\PositionUpdaterOctreeEngine.cs" />
+    <Compile Include="Core\DataSetItem.cs" />
+    <Compile Include="Core\DataSetSource.cs" />
+    <Compile Include="Core\Pool.cs" />
+    <Compile Include="Core\Dataset.cs" />
+    <Compile Include="Core\PoolLoader.cs" />
+    <Compile Include="Core\PoolObjectEnabler.cs" />
+    <Compile Include="Core\PositionTargetSource.cs" />
+    <Compile Include="Core\PositionUpdater.cs" />
+    <Compile Include="Foctories\DataSetAssetFactory.cs" />
+    <Compile Include="Foctories\DataSetItemFactory.cs" />
+    <Compile Include="Foctories\DataSetProxyFactory.cs" />
+    <Compile Include="Foctories\IPoolDatasetFactory.cs" />
+    <Compile Include="Foctories\IPoolDataSetItemFactory.cs" />
+    <Compile Include="Foctories\ITargetableFactory.cs" />
+    <Compile Include="Foctories\PoolDataSetFactory.cs" />
+    <Compile Include="Foctories\PoolFactory.cs" />
+    <Compile Include="Foctories\PositionUpdaterFactory.cs" />
+    <Compile Include="Interfaces\IEngineSetupFactory.cs" />
+    <Compile Include="Interfaces\IPool.cs" />
+    <Compile Include="Interfaces\IDataset.cs" />
+    <Compile Include="Interfaces\IDatasetProxy.cs" />
+    <Compile Include="Interfaces\IPoolEvents.cs" />
+    <Compile Include="Interfaces\IPoolObjectEvents.cs" />
+    <Compile Include="Interfaces\IDatasetItem.cs" />
+    <Compile Include="Interfaces\IPoolSystemClearable.cs" />
+    <Compile Include="Interfaces\IPoolSystemInitializable.cs" />
+    <Compile Include="Interfaces\IPositionUpdater.cs" />
+    <Compile Include="Interfaces\IPositionUpdaterEngine.cs" />
+    <Compile Include="Interfaces\IPostionTargetSource.cs" />
+    <Compile Include="SmartPoolStaticSettings.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
